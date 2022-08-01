@@ -5,7 +5,7 @@ const generatePage = require('./generateMarkdown');
 // TODO: Create an array of questions for user input
 const questions = [ {
     type: "input",
-    name: "projectTitle",
+    name: "title",
     message: "What is the project title?",
 },
 {
@@ -17,6 +17,7 @@ const questions = [ {
     type: "input",
     name: "installation",
     message: "Describe the installation process if any: ",
+
 },
 {
     type: "input",
@@ -28,13 +29,13 @@ const questions = [ {
     name: "license",
     message: "Chose the appropriate license for this project: ",
     choices: [
-        "Apache",
-        "Academic",
-        "GNU",
-        "ISC",
+        "GNU AGPLv3",
+        "GNU GPLv3",
+        "GNU LGPLv3",
+        "Apache 2.0",
+        "Boost Software 1.0",
         "MIT",
         "Mozilla",
-        "Open"
     ]
 },
 {
@@ -63,18 +64,25 @@ const questions = [ {
     message: "Please enter your email: "
 }];
 
-const promptUser = (data) => {
-    return inquirer.prompt(questions)
-};
 
-promptUser()
-    .then
+    
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, generatePage(data), function (err) {
+        if (err) {
+            return console.log(err);
+        }
+    });
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions)
+    .then((data) => {
+        writeToFile("./README.md", data)
+    })
+}
 
 // Function call to initialize app
 init();
