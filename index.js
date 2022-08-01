@@ -36,6 +36,7 @@ const questions = [ {
         "Boost Software 1.0",
         "MIT",
         "Mozilla",
+        "No license"
     ]
 },
 {
