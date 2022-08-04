@@ -134,7 +134,7 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
     .then((data) => {
-        writeToFile("./README.md", data)
+        writeToFile("./example/README.md", data)
     })
 }
 
