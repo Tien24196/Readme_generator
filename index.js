@@ -7,11 +7,27 @@ const questions = [ {
     type: "input",
     name: "title",
     message: "What is the project title?",
+    validate: titleInput => {
+        if (titleInput) {
+          return true;
+        } else {
+          console.log('Please enter your project title!');
+          return false;
+        }
+      }
 },
 {
     type: "input",
     name: "description",
-    message: "Write a brief description of your project: "
+    message: "Write a brief description of your project: ",
+    validate: descriptionInput => {
+        if (descriptionInput) {
+          return true;
+        } else {
+          console.log('Please enter a brief description');
+          return false;
+        }
+      }
 },
 {
     type: "input",
@@ -22,7 +38,15 @@ const questions = [ {
 {
     type: "input",
     name: "usage",
-    message: "What is this project usage for?"
+    message: "What is this project usage for?",
+    validate: usageInput => {
+        if (usageInput) {
+          return true;
+        } else {
+          console.log('Please enter the project usage!');
+          return false;
+        }
+      }
 },
 {
     type: "list",
@@ -42,27 +66,56 @@ const questions = [ {
 {
     type: "input",
     name: "contributing",
-    message: "Who are the contributors of this projects?"
+    message: "Who are the contributors of this projects?",
+    validate: contributingInput => {
+        if (contributingInput) {
+          return true;
+        } else {
+          console.log('Please enter the contributors!');
+          return false;
+        }
+      }
+
 },
 {
     type: "input",
     name: "tests",
-    message: "Is there a test included?"
+    message: "Is there a test included?",
+    validate: testsInput => {
+        if (testsInput) {
+          return true;
+        } else {
+          console.log('Please enter test included!');
+          return false;
+        }
+      }
 },
-{
-    type: "input",
-    name: "questions",
-    message: "What do I do if I have an issue? "
-},
+
 {
     type: "input",
     name: "username",
-    message: "Please enter your GitHub username: "
+    message: "Please enter your GitHub username: ",
+    validate: usernameInput => {
+        if (usernameInput) {
+          return true;
+        } else {
+          console.log('Please enter your Github username!');
+          return false;
+        }
+      }
 },
 {
     type: "input",
     name: "email",
-    message: "Please enter your email: "
+    message: "Please enter your email: ",
+    validate: emailInput => {
+        if (emailInput) {
+          return true;
+        } else {
+          console.log('Please enter your email address!');
+          return false;
+        }
+      }
 }];
 
 
